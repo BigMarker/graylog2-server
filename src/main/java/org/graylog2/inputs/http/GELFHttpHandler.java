@@ -84,6 +84,9 @@ public class GELFHttpHandler extends SimpleChannelHandler {
 
         if (keepAlive) {
             response.setHeader(HttpHeaders.Names.CONNECTION, HttpHeaders.Values.KEEP_ALIVE);
+            
+            response.setHeader(HttpHeaders.Names.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
+            response.setHeader(HttpHeaders.Names.CONTENT_LENGTH, 0);
         }
 
         final ChannelFuture channelFuture = channel.write(response);
